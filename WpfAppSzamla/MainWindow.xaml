@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfAppSzamla.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppSzamla"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <TabPanel>
+            <Label Content="Termék neve"/>
+            <TextBox x:Name="txtNev" Width="200"/>
+            <Label Content="Egységára"/>
+            <TextBox x:Name="txtAr" Width="60"/>
+            <Label Content="Egysége"/>
+            <ComboBox x:Name="cbEgyseg" Width="50" SelectionChanged="cbEgyseg_SelectionChanged"/>
+            <Label Content="Mennyisége/darabszáma"/>
+            <Slider x:Name="sliMennyiseg" Width="120" Minimum="1" Maximum="10" BorderThickness="0.1"/>
+            <Label x:Name="labMennyi" Content="{Binding ElementName=sliMennyiseg, Path=Value, StringFormat={}{0:N2}}"/>
+            <Button x:Name="btnFelvesz" Content="Kosárba helyez" Width="80" Click="btnFelvesz_Click"/>
+        </TabPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid x:Name="dgTetelek" Grid.Row="1" Margin="5" Background="Cornsilk"/>
+            <Label x:Name="labSzum" Grid.Column="1" Content="0 Ft" FontSize="40"
+                   VerticalAlignment="Center" Foreground="Red">
+            </Label>
+        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+            <Button x:Name="btnRogzit" Content="CSV-be ír" Width="150" Click="btnRogzit_Click"/>
+            <Button x:Name="btnBetolt" Content="CSV fájlból olvas" Width="150" Click="btnBetolt_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
