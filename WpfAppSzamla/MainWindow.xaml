@@ -29,7 +29,7 @@
                 <ColumnDefinition Width="7*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="dgTetelek" Grid.Row="1" Margin="5" Background="Cornsilk"/>
+            <DataGrid x:Name="dgTetelek" Grid.Row="1" Margin="5" Background="Cornsilk" MouseDoubleClick="dgTetelek_MouseDoubleClick"/>
             <Label x:Name="labSzum" Grid.Column="1" Content="0 Ft" FontSize="40"
                    VerticalAlignment="Center" Foreground="Red">
             </Label>
@@ -37,6 +37,7 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
             <Button x:Name="btnRogzit" Content="CSV-be ír" Width="150" Click="btnRogzit_Click"/>
             <Button x:Name="btnBetolt" Content="CSV fájlból olvas" Width="150" Click="btnBetolt_Click"/>
+            <Button x:Name="btnTörlés" Content="Törlés a kosárból" Width="150" Click="btnTörlés_Click"/>
         </StackPanel>
     </Grid>
 </Window>
